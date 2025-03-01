@@ -374,15 +374,14 @@ class VoiceClient(BaseVoiceClient):
         Optional[bytes]
             If audio was received then it's returned.
         """
-        print(self)
-        print(self.socket)
-        ready, _, err = select.select([self.socket], [self.socket], [self.socket], 1)
-        if err:
-            _log.error(f"Socket error: {err[0]}")
-            return
-        if not ready or not self.is_connected():
-            return
 
+        #ready, _, err = select.select([self.socket], [], [self.socket], 1)
+        #if err:
+        #    _log.error(f"Socket error: {err[0]}")
+        #    return
+        #if not ready or not self.is_connected():
+        #    return
+        print(dir(self))
         data = self.socket.recv(4096)
         if dump:
             return
