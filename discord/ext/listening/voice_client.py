@@ -74,7 +74,7 @@ class AudioReceiver(threading.Thread):
 
     def _do_run(self) -> None:
         while not self._end.is_set():
-            if not self._connected.is_set():
+            if not self._connected:
                 self._connected.wait()
 
             data = self.client.recv_audio(dump=not self._resumed.is_set())
