@@ -70,7 +70,7 @@ class AudioReceiver(threading.Thread):
         self._resumed: AsyncEventWrapper = AsyncEventWrapper()
         self._clean: AsyncEventWrapper = AsyncEventWrapper()
         self._clean.set()
-        self._connected: threading.Event = client._connected
+        self._connected: threading.Event = client.is_connected
 
     def _do_run(self) -> None:
         while not self._end.is_set():
