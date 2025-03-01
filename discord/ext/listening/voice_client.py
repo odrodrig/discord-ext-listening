@@ -381,7 +381,8 @@ class VoiceClient(BaseVoiceClient):
         #    return
         #if not ready or not self.is_connected():
         #    return
-        print(dir(self))
+        print(dir(self.socket))
+        print(type(self.socket))
         data = self.socket.recv(4096)
         if dump:
             return
