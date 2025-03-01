@@ -3,7 +3,7 @@ channels. It uses Python's standard multiprocessing library for audio processing
 flexible design.
 
 # How to use
-`pip install git+https://github.com/Sheppsu/discord-ext-listening`
+`pip install git+https://github.com/odrodrig/discord-ext-listening`
 
 Check examples folder to see how to use.
 I might get some actual documentation up eventually.
