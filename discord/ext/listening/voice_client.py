@@ -76,7 +76,7 @@ class AudioReceiver(threading.Thread):
         while not self._end.is_set():
             if not self._connected.is_set():
                 self._connected.wait()
-
+            print(self.sink.output_files)
             data = self.client.recv_audio(dump=not self._resumed.is_set())
             if data is None:
                 continue
@@ -374,6 +374,7 @@ class VoiceClient(BaseVoiceClient):
         Optional[bytes]
             If audio was received then it's returned.
         """
+        print(self._receiver.sink)
         ready, _, err = select.select([self.socket], [], [self.socket], 0.01)
         if err:
             _log.error(f"Socket error: {err[0]}")
